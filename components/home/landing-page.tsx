@@ -36,7 +36,7 @@ function LandingPage() {
         animate={{ scale: 1, opacity: 1, transitionDuration: "0.2s" }}
         exit={{ x: 0, opacity: 0 }}
       >
-        <div className="grid grid-cols-12 gap-4 h-84.5vh ml-4 sm:mx-12 md:mx:16">
+        <div className="grid grid-cols-12 gap-4 h-84.5vh ml-4 sm:mx-12 pt-[20vh] sm:pt-[0vh] md:mx:16">
           <div className="col-span-12 md:col-span-7 lg:col-span-6 flex flex-col justify-center items-center">
             <div className="items-center w-3/4 -mt-10 relative">
               <img
@@ -62,7 +62,7 @@ function LandingPage() {
                   loop
                 />
               </h1>
-              <h3 className="text-5xl font-light text-violet text-justify">
+              <h3 className="text-7xl sm:text-5xl font-light text-violet text-justify">
                 I am a fullstack web developper, I build interactive, strong and secured website that run across
                 platforms & devices.
               </h3>
