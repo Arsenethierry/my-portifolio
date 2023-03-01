@@ -18,8 +18,8 @@ export default function Button({ text, type,
                 rounded oversflow-hidden border-2 border-transparent
                 hover:shadow-light-xl
                 ${
-                    type === 'solid' ? 'bg-pink text-blue hover:outline-none hover:bg-transparent hover:text-pink focus:outline-none' :
-                    'text-pink bg-transparent border-pink hover:outline-none  hover:bg-pink hover:text-blue hover:border-pink focus:outline-none' 
+                    type === 'solid' ? 'bg-[#8892B0] text-blue hover:outline-none hover:bg-transparent hover:text-[#8892B0] focus:outline-none' :
+                    'text-[#fff] bg-[#232946] border-[#8892B0] hover:outline-none  hover:bg-[#8892B0] hover:text-blue hover:border-[#8892B0] focus:outline-none' 
                 }
                 `
             }>
