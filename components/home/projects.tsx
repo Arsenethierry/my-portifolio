@@ -23,16 +23,16 @@ function Projects() {
         {   
             "id": 3,
             "tags": "#nextjs #react-query #nodejs",
-            "projectTitle": "Social Media App",
+            "projectTitle": "Blog Web App",
             "description": "A full stack social media web application built with socket.io and mernstack",
-            "picture": "images/messenger.jpg"
+            "picture": "images/mern-blog.png"
         },
         {   
             "id": 4,
             "tags": "#nexjs #tailwindcss",
             "projectTitle": "Portfolio",
             "description": "A full stack social media web application built with socket.io and mernstack",
-            "picture": "images/messenger.jpg"
+            "picture": "images/portfolio.png"
         }
     ]
     const control = useAnimation();
