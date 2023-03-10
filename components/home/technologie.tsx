@@ -52,18 +52,19 @@ function Technologies() {
             visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
             hidden: { opacity: 0.04, y: 100 },
         };
-    },[control, inView])
+    }, [control, inView])
     return (
         <div
-        // 232946
+            // 232946
+            id="skills"
             className='relative bg-[#061328] flex justify-center'>
             <div className='flex flex-col justify-center max-w-screen-xl items-center px-4 lg:px-7 lg:py-10 text-center pt-[50px]'>
                 <motion.h1
-                initial="hidden"
-                animate={control}
-                variants={textVariant}
-                ref={ref}
-                className="text-[#8892B0] text-[32px] md:text-[45px] font-semibold ">Technologies I use</motion.h1>
+                    initial="hidden"
+                    animate={control}
+                    variants={textVariant}
+                    ref={ref}
+                    className="text-[#8892B0] text-[32px] md:text-[45px] font-semibold ">Technologies I use</motion.h1>
                 <div className='container pt-[50px] pb-[50px] px-4 lg:px-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6'>
                     {techs.map(tech => <RenderCard tech={tech} />)}
                 </div>

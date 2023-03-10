@@ -43,7 +43,7 @@ function SocialBar(): JSX.Element {
         {
             "name": "facebook",
             "url": "https://www.facebook.com/Arsenenocs",
-            "icon": "/images/icons/facebook.svg"
+            "icon": "/images/icons/whatsapp (2).svg"
         },
     ]
     return (
