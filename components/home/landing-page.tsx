@@ -70,10 +70,10 @@ function LandingPage() {
                 <div className="sm:col-span-1 xl:col-span-1">
                   <a href="https://wa.me/%2B919014592736?text=Hi%20Arsene%2C%20I%20saw%20your%20portifolio%20and%20..."
                     target="_blank">
-                      <Button
-                        type="solid"
-                        text="Know more"
-                      />
+                    <Button
+                      type="solid"
+                      text="Know more"
+                    />
                   </a>
                 </div>
                 <div className="sm:col-span-1 xl:col-span-1">
@@ -91,13 +91,17 @@ function LandingPage() {
             </div>
           </div>
           <div className="hidden md:flex md:col-span-5 lg:col-span-6 text-justify text-white justify-end items-end ">
-            <img
-              // src='/images/arsene-pic.jpg'
-              src="/images/arsenepic2.png"
-              alt="Arsene Thierry"
-              className="ml-auto w-100 lg:w-3/4 mr-[-66px] pointer-events-none text-right"
-            />
+            <div className="flex flex-wrap justify-center">
+              <div className="">
+                <img src="/images/no-bg.png" alt="..." className="rounded-full w-[30vw] lg:w-[20vw] max-w-full h-auto align-middle border-[10px] lg:border-[30px] 2xl:border-[40px] border-[#223C5C]" />
+              </div>
+            </div>
           </div>
+          {/* <div className="md:hidden flex col-span-12 text-justify text-white justify-center items-center z-[100]">
+            <div className="flex flex-wrap justify-center">
+                <img src="/images/no-bg.png" alt="..." className="shadow-lg rounded max-w-full h-auto align-middle w-[95vw] border-[10px] border-[#223C5C]" />
+            </div>
+          </div> */}
         </div>
       </motion.div>
     </div>
