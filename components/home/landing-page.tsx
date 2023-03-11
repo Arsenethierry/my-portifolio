@@ -43,7 +43,6 @@ function LandingPage() {
                 alt="Triangle 3d Vector"
                 className="hidden md:block absolute right-0 top-0 w-2/3 md:w-16 animate-spin"
               />
-              {/* <HeaderSmall text="Who I am" />  */}
               <h1 className="text-3xl sm:text-2xl xl:text-2xl font-extrabold text-white leading-none mb-3">
                 Arsene Thierry
               </h1>
@@ -67,7 +66,7 @@ function LandingPage() {
               </h3>
               <div className="md:hidden flex col-span-12 text-justify text-white justify-center items-center z-[100]">
             <div className="flex flex-wrap justify-center mt-[10px]">
-                <img src="/images/no-bg.png" alt="..." className="shadow-lg rounded-[10px] max-w-full h-auto align-middle w-[95vw] border-[10px] border-[#223C5C]" />
+                <img src="/images/no-bg.png" alt="..." className="shadow-lg rounded-[10px] max-w-full h-[300px] align-middle w-[95vw] border-[10px] border-[#223C5C]" />
             </div>
           </div>
               <div className="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-none xl:grid-cols-2 gap-4 mt-6">
