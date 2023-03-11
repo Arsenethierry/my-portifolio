@@ -14,8 +14,7 @@ function LandingPage() {
     stiffness: 80,
   };
   //@ts-ignore
-  const personalDetails: PersonalDetails = useContext(PersonalDetailsContext);
-  const router = useRouter();
+
   return (
     <div className="bg-[#001E3C] h-screen">
       <div>
@@ -36,7 +35,7 @@ function LandingPage() {
         animate={{ scale: 1, opacity: 1, transitionDuration: "0.2s" }}
         exit={{ x: 0, opacity: 0 }}
       >
-        <div className="grid grid-cols-12 gap-4 h-84.5vh ml-4 sm:mx-12 pt-[20vh] sm:pt-[0vh] md:mx:16">
+        <div className="h-ful grid grid-cols-12 gap-4 sm:h-84.5vh ml-4 sm:mx-12 pt-[20vh] sm:pt-[0vh] md:mx:16">
           <div className="col-span-12 md:col-span-7 lg:col-span-6 flex flex-col justify-center items-center">
             <div className="items-center w-3/4 -mt-10 relative">
               <img
