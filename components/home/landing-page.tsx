@@ -16,7 +16,7 @@ function LandingPage() {
   //@ts-ignore
 
   return (
-    <div className="bg-[#001E3C] h-screen">
+    <div className="bg-[#001E3C] h-auto sm:h-screen pb-[50px] sm:pb-[0]">
       <div>
         <img
           src="/images/vectors/ellipse.svg"
