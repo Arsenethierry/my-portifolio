@@ -71,7 +71,7 @@ function LandingPage() {
                 <img src="/images/no-bg.png" alt="..." className="shadow-lg rounded-[10px] max-w-full h-auto align-middle w-[95vw] border-[10px] border-[#223C5C]" />
             </div>
           </div>
-              <div className="grid grid-cols-2 md:grid-cols-none xl:grid-cols-2 gap-4 mt-6">
+              <div className="flex sm:grid sm:grid-cols-2 md:grid-cols-none xl:grid-cols-2 gap-4 mt-6">
                 <div className="sm:col-span-1 xl:col-span-1">
                   <a href="https://wa.me/%2B919014592736?text=Hi%20Arsene%2C%20I%20saw%20your%20portifolio%20and%20..."
                     target="_blank">

@@ -14,7 +14,7 @@ export default function Button({ text, type,
             // onClick={onClickHandler}
             className={
                 `font-regular
-                px-6 w-[150px] sm:px-4 xl:px-6 py-1 sm:py-4 w-64 sm:w-52 md:w-56 2xl:w-60 text-7xl xs:h-10 sm:h-25 transition-all
+                px-6 sm:px-4 xl:px-6 py-1 sm:py-4 w-64 sm:w-52 md:w-56 2xl:w-60 text-7xl xs:h-10 sm:h-25 transition-all
                 rounded oversflow-hidden border-2 border-transparent
                 hover:shadow-light-xl
                 ${
