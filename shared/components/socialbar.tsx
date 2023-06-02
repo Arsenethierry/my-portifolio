@@ -36,11 +36,6 @@ function SocialBar(): JSX.Element {
             "icon": "images/icons/github.svg"
         },
         {
-            "name": "instagram",
-            "url": "https://www.instagram.com/arsenenocs/",
-            "icon": "/images/icons/instagram.svg"
-        },
-        {
             "name": "facebook",
             "url": "https://wa.me/%2B919014592736?text=Hi%20Arsene%2C%20I%20saw%20your%20portifolio%20and%20...",
             "icon": "/images/icons/whatsapp (2).svg"
