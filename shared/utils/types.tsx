@@ -7,6 +7,9 @@ export interface PersonalDetails {
     resume?: string;
     profile_img: string;
     calendyUrl?: string;
+    typedContent?: string[];
+    desc: string;
+    ogImage?: string;
 }
 
 export interface SocialMedia {

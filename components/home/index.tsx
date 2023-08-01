@@ -1,20 +1,22 @@
 import React from 'react';
 import LandingPage from './landing-page';
 import Projects from './projects';
-import SkillsExplore from './skills';
 import Technologies from './technologie';
-import Work from './work';
+import { PersonalDetails } from '../../shared/utils/types';
 
-function HomePage() {
+type Props = {
+    personalDetails: PersonalDetails;
+};
+
+function HomePage({ personalDetails }: Props) {
+
     return (
         <div>
             <div className='overflow-x-clip'>
-               <LandingPage />
-               <Projects />               
-               <Technologies />
-               {/* <SkillsExplore /> */}
-               {/* <Work /> */}
-            </div> 
+                <LandingPage personalDetails={personalDetails} />
+                <Projects />
+                <Technologies />
+            </div>
         </div>
     );
 }

@@ -1,13 +1,16 @@
 import { useRouter } from "next/router";
 import React, { useContext } from "react";
-import { PersonalDetailsContext } from "../../shared/utils/context";
-import { PersonalDetails } from "../../shared/utils/types";
 import { motion } from "framer-motion";
-import HeaderSmall from "../header-small";
 import Button from "../../shared/components/buttons";
 import Typed from "react-typed";
+import Image from "next/image";
+import { PersonalDetails } from "../../shared/utils/types";
 
-function LandingPage() {
+type Props = {
+  personalDetails: PersonalDetails;
+};
+
+function LandingPage({ personalDetails }: Props) {
   const config = {
     type: "spring",
     damping: 10,
@@ -21,12 +24,14 @@ function LandingPage() {
         <img
           src="/images/vectors/ellipse.svg"
           alt="Ellipse Vector"
+          loading="lazy"
           className="absolute right-0 bottom-0 w-2/3 md:w-50p lg:w-35p pointer-events-none"
         />
       </div>
       <img
         src="/images/vectors/triangle.svg"
         alt="Triangle 3d Vector"
+        loading="lazy"
         className="block md:hidden absolute right-1/3 top-28 w-1/4 md:w-16 animate-spin pointer-events-none"
       />
       <motion.div
@@ -41,34 +46,37 @@ function LandingPage() {
               <img
                 src="/images/vectors/triangle.svg"
                 alt="Triangle 3d Vector"
+                loading="lazy"
                 className="hidden md:block absolute right-0 top-0 w-2/3 md:w-16 animate-spin"
               />
               <h1 className="text-3xl sm:text-2xl xl:text-2xl font-extrabold text-white leading-none mb-3">
-                Arsene Thierry
+                {personalDetails.name}
               </h1>
               <h1 className="text-4xl sm:text-6xl xl:text-4xl font-extrabold text-white leading-none mb-3">
                 <Typed
-                  strings={[
-                    "I'm a Full Stack Developer",
-                    "I'm a Next.Js Developer",
-                    "I'm a Node.js Developer",
-                    "I'm a Express.js Developer",
-                    "I'm a Firebase Developer",
-                  ]}
+                  strings={personalDetails.typedContent}
                   typeSpeed={150}
                   backSpeed={100}
                   loop
                 />
               </h1>
               <h3 className="text-7xl sm:text-5xl font-light text-violet text-justify">
-                I am a fullstack web developper, I build interactive, strong and secured website that run across
-                platforms & devices.
+                {personalDetails.desc}
               </h3>
               <div className="md:hidden flex col-span-12 text-justify text-white justify-center items-center z-[100]">
-            <div className="flex flex-wrap justify-center mt-[10px]">
-                <img src="/images/no-bg.png" alt="..." className="shadow-lg rounded-[10px] max-w-full h-[300px] align-middle w-[95vw] border-[10px] border-[#223C5C]" />
-            </div>
-          </div>
+                <div className="flex flex-wrap justify-center mt-[10px]">
+                  <Image
+                    width={400}
+                    height={400}
+                    className="shadow-lg rounded-[10px] max-w-full h-[300px] align-middle w-[95vw] border-[10px] border-[#223C5C]"
+                    src={'/images/no-bg.png'}
+                    placeholder="blur"
+                    blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCAAFAAgDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAAB//EAB4QAAICAAcAAAAAAAAAAAAAAAECAxEABAUSIoKh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREy/9oADAMBAAIRAxEAPwA+hzbQ6Y8Rjjk3upDsvJLFmj1HuJWqLzD/2Q=='
+                    alt="this"
+                    priority
+                  />
+                </div>
+              </div>
               <div className="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-none xl:grid-cols-2 gap-4 mt-6">
                 <div className="sm:col-span-1 xl:col-span-1">
                   <a href="https://wa.me/%2B919014592736?text=Hi%20Arsene%2C%20I%20saw%20your%20portifolio%20and%20..."
@@ -95,16 +103,20 @@ function LandingPage() {
           </div>
           <div className="hidden md:flex md:col-span-5 lg:col-span-6 text-justify text-white justify-end items-end ">
             <div className="flex flex-wrap justify-center">
-              <div className="">
-                <img src="/images/no-bg.png" alt="..." className="rounded-full w-[30vw] lg:w-[20vw] max-w-full h-auto align-middle border-[10px] lg:border-[30px] 2xl:border-[40px] border-[#223C5C]" />
+              <div className="w-[30vw] lg:w-[20vw]">
+                <Image
+                  width={500}
+                  height={500}
+                  className="rounded-full max-w-full h-auto align-middle"
+                  src={personalDetails.profile_img}
+                  placeholder="blur"
+                  blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCAAFAAgDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAAB//EAB4QAAICAAcAAAAAAAAAAAAAAAECAxEABAUSIoKh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREy/9oADAMBAAIRAxEAPwA+hzbQ6Y8Rjjk3upDsvJLFmj1HuJWqLzD/2Q=='
+                  alt="arsene profile image"
+                  priority
+                />
               </div>
             </div>
           </div>
-          {/* <div className="md:hidden flex col-span-12 text-justify text-white justify-center items-center z-[100]">
-            <div className="flex flex-wrap justify-center">
-                <img src="/images/no-bg.png" alt="..." className="shadow-lg rounded max-w-full h-auto align-middle w-[95vw] border-[10px] border-[#223C5C]" />
-            </div>
-          </div> */}
         </div>
       </motion.div>
     </div>
