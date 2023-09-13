@@ -37,7 +37,7 @@ function SocialBar(): JSX.Element {
         },
         {
             "name": "facebook",
-            "url": "https://wa.me/%2B919014592736?text=Hi%20Arsene%2C%20I%20saw%20your%20portifolio%20and%20...",
+            "url": "https://wa.me/%2B250798816925?text=Hi%20Arsene%2C%20I%20saw%20your%20portifolio%20and%20...",
             "icon": "/images/icons/whatsapp (2).svg"
         },
     ]
