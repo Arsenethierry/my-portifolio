@@ -17,7 +17,7 @@ const navlinks = [
     },
     {
       title: 'Contact',
-      href: 'https://wa.me/%2B919014592736?text=Hi%20Arsene%2C%20I%20saw%20your%20portifolio%20and%20...'
+      href: 'https://wa.me/%2B250798816925?text=Hi%20Arsene%2C%20I%20saw%20your%20portifolio%20and%20...'
     }
   ];
 
