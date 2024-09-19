@@ -5,38 +5,38 @@ import RenderCard from './render-skills-card';
 
 const techs = [
     {
-        "name": "Javascript",
-        "description": "Design and develop bespoke software solutions to meet project requirements",
-        "icon": "/images/skills/javascript.svg"
+        name: "Technical Support",
+        description: "Expert in troubleshooting cybersecurity products, resolving complex issues, and providing excellent customer service. Skilled in translating technical concepts for non-technical users.",
+        icon: "/images/icons/customer-service.png"
     },
     {
-        "name": "ReactJs",
-        "description": "Tailwind CSS is basically a modern,trending and utility-first CSS framework for rapidly building custom user interfaces.",
-        "icon": "/images/icons/react-2.svg"
+        name: "Full Stack Development",
+        description: "Extensive experience in building modern web applications using Next.js for server-side rendering and static site generation. Proficient in developing scalable backend services with Nest.js",
+        icon: "/images/icons/code.png"
     },
     {
-        "name": "NodeJs",
-        "description": "Tailwind CSS is basically a modern,trending and utility-first CSS framework for rapidly building custom user interfaces.",
-        "icon": "/images/icons/nodejs-2.svg"
+        name: "DevOps",
+        description: "Proficient in Docker containerization, CI/CD pipeline implementation, and version control with Git. Experienced in automating development and deployment processes.",
+        icon: "/images/icons/continuous.png"
     },
     {
-        "name": "Git",
-        "description": "Proficient in using Git for version control and collaboration, with experience in creating and merging branches, resolving conflicts, and using Git in a team environment",
-        "icon": "/images/icons/github.svg"
+        name: "Cybersecurity",
+        description: "Strong foundation in network security, threat analysis, and security best practices. Skilled in implementing secure coding techniques and data protection measures.",
+        icon: "/images/icons/cyber-security.png"
     },
     {
-        "name": "MongoDB",
-        "description": "Design and maintain MongoDB instances, Troubleshooting MongoDB bottlenecks, Plan procedures for backup in case of a data loss, Optimize performance issues, etc",
-        "icon": "/images/skills/mongodb.png"
+        name: "Cloud Platforms",
+        description: "Experienced in deploying and managing applications on AWS and Azure. Knowledgeable in cloud-native services and serverless architectures.",
+        icon: "/images/icons/api.png"
     },
     {
-        "name": "Devops",
-        "description": "using Devops tools like Docker, Jenkins, Git, Kubernetes and more, I build and setup new development tools and infrastructure and  ensure that development follows established processes and works as intended",
-        "icon": "https://bostami-next.vercel.app/images/preview/fatures/1.png"
+        name: "Databases",
+        description: "Skilled in MongoDB for document-based storage, PostgreSQL and MySql for relational data management.",
+        icon: "/images/icons/update.png"
     },
 ]
 
-function Technologies() {
+function Skills() {
     const control = useAnimation()
     const [ref, inView] = useInView()
     useEffect(() => {
@@ -64,7 +64,7 @@ function Technologies() {
                     animate={control}
                     variants={textVariant}
                     ref={ref}
-                    className="text-[#8892B0] text-[32px] md:text-[45px] font-semibold ">Technologies I use</motion.h1>
+                    className="text-[#8892B0] text-[32px] md:text-[45px] font-semibold ">My Skills</motion.h1>
                 <div className='container pt-[50px] pb-[50px] px-4 lg:px-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6'>
                     {techs.map(tech => <RenderCard tech={tech} />)}
                 </div>
@@ -73,4 +73,4 @@ function Technologies() {
     );
 }
 
-export default Technologies;
+export default Skills;

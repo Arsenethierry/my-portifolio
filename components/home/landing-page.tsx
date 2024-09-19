@@ -89,7 +89,7 @@ function LandingPage({ personalDetails }: Props) {
                 </div>
                 <div className="sm:col-span-1 xl:col-span-1">
                   <a
-                    href="https://drive.google.com/uc?export=download&id=1qtZetNPHWh3uvetPI0ywsGi0F51KqpG0"
+                    href="https://drive.google.com/uc?export=download&id=1I4aWa-0aLk0Y1Wndzl8P6onCyNYEeaca"
                     download
                   >
                     <Button
