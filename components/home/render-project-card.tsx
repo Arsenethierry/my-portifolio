@@ -25,7 +25,7 @@ function RenderCard({ data }: any) {
              initial="hidden"
              animate={control}
              ref={ref}
-             className='items-center bg-gray-50 rounded-lg shadow lg:flex bg-gray-800 border-gray-700'>
+             className='items-center rounded-lg shadow lg:flex bg-gray-800 border-gray-700'>
                 <div className="lg:h-full">
                 <a href="#">
                     <img className="w-full h-[100%] rounded-lg sm:rounded-none sm:rounded-l-lg" src={data.picture} alt="Bonnie Avatar" />

@@ -69,7 +69,7 @@ function LandingPage({ personalDetails }: Props) {
                     width={400}
                     height={400}
                     className="shadow-lg rounded-[10px] max-w-full h-[300px] align-middle w-[95vw] border-[10px] border-[#223C5C]"
-                    src={'/images/no-bg.png'}
+                    src={'/images/IMG_4517.JPG'}
                     placeholder="blur"
                     blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCAAFAAgDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAAB//EAB4QAAICAAcAAAAAAAAAAAAAAAECAxEABAUSIoKh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREy/9oADAMBAAIRAxEAPwA+hzbQ6Y8Rjjk3upDsvJLFmj1HuJWqLzD/2Q=='
                     alt="this"
@@ -108,7 +108,7 @@ function LandingPage({ personalDetails }: Props) {
                   width={500}
                   height={500}
                   className="rounded-full max-w-full h-auto align-middle"
-                  src={personalDetails.profile_img}
+                  src={'/images/IMG_4517.JPG'}
                   placeholder="blur"
                   blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCAAFAAgDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAAB//EAB4QAAICAAcAAAAAAAAAAAAAAAECAxEABAUSIoKh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREy/9oADAMBAAIRAxEAPwA+hzbQ6Y8Rjjk3upDsvJLFmj1HuJWqLzD/2Q=='
                   alt="arsene profile image"
