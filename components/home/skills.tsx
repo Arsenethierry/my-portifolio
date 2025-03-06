@@ -1,41 +1,136 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import HeaderSmall from '../header-small';
 import SkillsIcons from './skills-icons';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+const experienceItems = [
+    {
+        company: "NbliK, Delhi, India",
+        role: "Fullstack Web Developer",
+        duration: "June 2022 - September 2023",
+        achievements: [
+            "Designed and implemented RESTful APIs using Node.js and TypeScript, ensuring high performance and scalability.",
+            "Maintained a code library for future implementation by building recyclable architecture.",
+            "Collaborated with senior developers to boost efficiency and performance of applications."
+        ]
+    },
+    {
+        company: "VSTechworld5 Ltd, Vijayawada, India",
+        role: "BackEnd Developer",
+        duration: "May 2021 - June 2022",
+        achievements: [
+            "Contributed on the Back-End side of a clinical web app to collect data of 100+ patients.",
+            "Assisted in developing server-based nodejs software by providing inputs and insights.",
+            "Acquired a 15% increase in the quality of overall work."
+        ]
+    },
+    {
+        company: "MICROVERSE",
+        role: "Full Stack Web Development Program",
+        duration: "February 2023 - January 2024",
+        achievements: [
+            "Spent 900+ hours mastering algorithms, data structures, and full-stack development.",
+            "Developed projects with Node.js, Express.js, JavaScript, React, Next.js and Redux.",
+            "Practiced remote pair-programming using GitHub with 20+ international developers."
+        ]
+    }
+];
 
 function SkillsExplore() {
-    const control = useAnimation();
-    const [ref, inView] = useInView();
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [direction, setDirection] = useState(1); // Default direction is forward
+    const [isPaused, setIsPaused] = useState(false);
 
-    useEffect(() => {
-        if (inView) {
-            control.start("visible");
-        } else {
-            control.start("hidden");
-        }
-    }, [control, inView])
+    // Animation controls
+    const control = useAnimation();
+    const [ref, inView] = useInView({
+        threshold: 0.3, // Trigger when 30% of the element is visible
+    });
 
     const textVariant = useMemo(() => {
         return {
             visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
             hidden: { opacity: 0.04, y: 100 },
         }
-    }, [])
+    }, []);
 
-    const experienceItems = [
-        {
-            company: "Nblik, Delhi, India",
-            role: "Fullstack Web Developer",
-            duration: "June 2022 - September 2023",
-            achievements: [
-                "Designed RESTful APIs using Node.js/TypeScript",
-                "Built recyclable code architecture",
-                "Collaborated with senior developers"
-            ]
+    // Carousel animation variants
+    const carouselVariants = {
+        enter: (direction) => ({
+            x: direction > 0 ? 1000 : -1000,
+            opacity: 0
+        }),
+        center: {
+            x: 0,
+            opacity: 1
         },
-        // Add other experience items
-    ];
+        exit: (direction) => ({
+            x: direction < 0 ? 1000 : -1000,
+            opacity: 0
+        })
+    };
+
+
+    // Control animation based on view
+    useEffect(() => {
+        if (inView) {
+            control.start("visible");
+        } else {
+            control.start("hidden");
+        }
+    }, [control, inView]);
+
+    // Auto-scroll functionality
+    const nextSlide = useCallback(() => {
+        setDirection(1);
+        setCurrentIndex((prevIndex) =>
+            prevIndex === experienceItems.length - 1 ? 0 : prevIndex + 1
+        );
+    }, [experienceItems?.length]);
+
+    // Setup auto-scrolling interval
+    useEffect(() => {
+        let interval;
+
+        if (inView && !isPaused) {
+            interval = setInterval(() => {
+                nextSlide();
+            }, 3000); // Change slide every 5 seconds
+        }
+
+        return () => {
+            if (interval) clearInterval(interval);
+        };
+    }, [inView, isPaused, nextSlide]);
+
+    const paginate = (newDirection) => {
+        // Pause auto-scrolling temporarily when user interacts
+        setIsPaused(true);
+        setTimeout(() => setIsPaused(false), 10000); // Resume after 10 seconds
+
+        setDirection(newDirection);
+        if (newDirection === 1) {
+            setCurrentIndex((prevIndex) =>
+                prevIndex === experienceItems.length - 1 ? 0 : prevIndex + 1
+            );
+        } else {
+            setCurrentIndex((prevIndex) =>
+                prevIndex === 0 ? experienceItems.length - 1 : prevIndex - 1
+            );
+        }
+    };
+
+    const handleDotClick = (index) => {
+        // Pause auto-scrolling temporarily when user interacts
+        setIsPaused(true);
+        setTimeout(() => setIsPaused(false), 10000); // Resume after 10 seconds
+
+        setDirection(index > currentIndex ? 1 : -1);
+        setCurrentIndex(index);
+    };
+
     return (
         <div className='bg-[#061328]'>
             <div className="relative py-10 lg:py-20 bg-[#061328] " id="skills">
@@ -67,36 +162,120 @@ function SkillsExplore() {
                     </div>
                 </div>
 
-                <section className="py-12 px-4">
+                <section className="py-12 px-4 bg-[#061328]">
                     <motion.h1
                         initial='hidden'
                         animate={control}
                         variants={textVariant}
                         ref={ref}
-                        className="text-[#8892B0] text-[32px] md:text-[45px] font-semibold text-center my-5">
+                        className="text-[#8892B0] text-[32px] md:text-[45px] font-semibold text-center mb-12">
                         Professional Experience
                     </motion.h1>
 
-                    <div className="max-w-4xl mx-auto space-y-8">
-                        {experienceItems.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                className="bg-gray-800 border-gray-700 p-6 rounded-lg shadow-md"
+                    <motion.div
+                        className="max-w-4xl mx-auto relative"
+                        initial="hidden"
+                        animate={control}
+                        variants={{
+                            visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } },
+                            hidden: { opacity: 0, y: 50 }
+                        }}
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
+                    >
+                        <div className="h-[400px] md:h-[350px] relative overflow-hidden rounded-lg">
+                            <AnimatePresence initial={false} custom={direction}>
+                                <motion.div
+                                    key={currentIndex}
+                                    custom={direction}
+                                    variants={carouselVariants}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    transition={{
+                                        x: { type: "spring", stiffness: 300, damping: 30 },
+                                        opacity: { duration: 0.2 }
+                                    }}
+                                    className="absolute w-full h-full"
+                                >
+                                    <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 p-8 rounded-lg shadow-xl h-full">
+                                        <h3 className="text-2xl font-bold tracking-tight text-white mb-2">
+                                            {experienceItems[currentIndex].role}
+                                        </h3>
+                                        <p className="text-indigo-400 font-medium text-lg mb-1">
+                                            {experienceItems[currentIndex].company}
+                                        </p>
+                                        <p className="text-slate-400 text-sm mb-6">
+                                            {experienceItems[currentIndex].duration}
+                                        </p>
+                                        <ul className="space-y-4 mt-3 text-slate-300">
+                                            {experienceItems[currentIndex].achievements.map((achievement, i) => (
+                                                <motion.li
+                                                    key={i}
+                                                    initial={{ opacity: 0, x: -10 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    transition={{ delay: i * 0.1 + 0.2 }}
+                                                    className="flex items-start"
+                                                >
+                                                    <span className="text-indigo-400 mr-2 mt-1">•</span>
+                                                    <span>{achievement}</span>
+                                                </motion.li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+
+                        <div className="flex justify-between absolute top-1/2 transform -translate-y-1/2 w-full">
+                            <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                onClick={() => paginate(-1)}
+                                className="p-2 rounded-full bg-indigo-600/80 backdrop-blur-sm text-white -ml-4 z-10"
                             >
-                                <h3 className="text-xl font-bold tracking-tight text-white">{item.role}</h3>
-                                <p className="text-indigo-500 font-medium mt-2">{item.company}</p>
-                                <p className="text-slate-500 text-sm mb-4">{item.duration}</p>
-                                <ul className="list-disc list-inside space-y-2 mt-3 mb-4 text-gray-500">
-                                    {item.achievements.map((achievement, i) => (
-                                        <li key={i} className="text-slate-600">{achievement}</li>
-                                    ))}
-                                </ul>
-                            </motion.div>
-                        ))}
-                    </div>
+                                <ChevronLeft size={24} />
+                            </motion.button>
+                            <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                onClick={() => paginate(1)}
+                                className="p-2 rounded-full bg-indigo-600/80 backdrop-blur-sm text-white -mr-4 z-10"
+                            >
+                                <ChevronRight size={24} />
+                            </motion.button>
+                        </div>
+
+                        <div className="flex justify-center mt-6 space-x-2">
+                            {experienceItems.map((_, index) => (
+                                <motion.button
+                                    key={index}
+                                    onClick={() => handleDotClick(index)}
+                                    whileHover={{ scale: 1.2 }}
+                                    whileTap={{ scale: 0.9 }}
+                                    className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-indigo-500' : 'bg-gray-600'
+                                        }`}
+                                />
+                            ))}
+                        </div>
+
+                        {/* Progress indicator */}
+                        {!isPaused && (
+                            <div className="w-full bg-gray-700 h-1 mt-4 rounded-full overflow-hidden">
+                                <motion.div
+                                    className="bg-indigo-500 h-full"
+                                    initial={{ width: "0%" }}
+                                    animate={{ width: "100%" }}
+                                    transition={{
+                                        duration: 3,
+                                        ease: "linear",
+                                        repeat: Infinity,
+                                        repeatType: "loop"
+                                    }}
+                                />
+                            </div>
+                        )}
+                    </motion.div>
                 </section>
             </div>
         </div>
