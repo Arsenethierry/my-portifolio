@@ -79,11 +79,11 @@ function LandingPage({ personalDetails }: Props) {
               </div>
               <div className="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-none xl:grid-cols-2 gap-4 mt-6">
                 <div className="sm:col-span-1 xl:col-span-1">
-                  <a href="https://wa.me/%2B250798816925?text=Hi%20Arsene%2C%20I%20saw%20your%20portifolio%20and%20..."
-                    target="_blank">
+                  <a href="https://wa.me/%2B250798816925?text=Hi%20Arsene%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect."
+                    target="_blank" rel="noopener noreferrer">
                     <Button
                       type="solid"
-                      text="Know more"
+                      text="Get in Touch"
                     />
                   </a>
                 </div>

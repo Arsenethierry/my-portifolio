@@ -5,33 +5,33 @@ import RenderCard from './render-skills-card';
 
 const techs = [
     {
-        name: "Technical Support",
-        description: "Expert in troubleshooting cybersecurity products, resolving complex issues, and providing excellent customer service. Skilled in translating technical concepts for non-technical users.",
+        name: "IT Support & Helpdesk",
+        description: "First-line IT support across multiple regions, resolving hardware, software, and network issues. Experienced with helpdesk ticketing tools, Microsoft Dynamics CRM, and user onboarding.",
         icon: "/images/icons/customer-service.png"
     },
     {
-        name: "Full Stack Development",
-        description: "Extensive experience in building modern web applications using Next.js for server-side rendering and static site generation. Proficient in developing scalable backend services with Nest.js",
-        icon: "/images/icons/code.png"
-    },
-    {
-        name: "DevOps",
-        description: "Proficient in Docker containerization, CI/CD pipeline implementation, and version control with Git. Experienced in automating development and deployment processes.",
-        icon: "/images/icons/continuous.png"
-    },
-    {
-        name: "Cybersecurity",
-        description: "Strong foundation in network security, threat analysis, and security best practices. Skilled in implementing secure coding techniques and data protection measures.",
-        icon: "/images/icons/cyber-security.png"
-    },
-    {
-        name: "Cloud Platforms",
-        description: "Experienced in deploying and managing applications on AWS and Azure. Knowledgeable in cloud-native services and serverless architectures.",
+        name: "Network Administration",
+        description: "Skilled in system and network administration across Linux, Windows, and Mac OS. Proficient in VPN, VPS configuration, backup & recovery systems, and Cisco Jabber.",
         icon: "/images/icons/api.png"
     },
     {
-        name: "Databases",
-        description: "Skilled in MongoDB for document-based storage, PostgreSQL and MySql for relational data management.",
+        name: "Full Stack Development",
+        description: "Building secure, scalable web applications using Next.js, React, Node.js, Express, and REST APIs. Experienced in both frontend and backend development with the MERN stack.",
+        icon: "/images/icons/code.png"
+    },
+    {
+        name: "Identity & Access Management",
+        description: "Implementing secure authentication using NetIQ Advanced Authentication, 2FA, and access control management. Ensuring GDPR compliance and data protection standards.",
+        icon: "/images/icons/cyber-security.png"
+    },
+    {
+        name: "DevOps & Cloud",
+        description: "Proficient in Docker, Jenkins, CI/CD pipelines, and Git. Experienced in deploying and managing applications on AWS and Azure cloud platforms.",
+        icon: "/images/icons/continuous.png"
+    },
+    {
+        name: "Databases & CRM",
+        description: "Skilled in MongoDB, SQL Server, PostgreSQL, and MySQL. Experienced in Microsoft Dynamics CRM, Airtable, and Salesforce administration.",
         icon: "/images/icons/update.png"
     },
 ]

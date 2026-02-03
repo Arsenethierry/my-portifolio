@@ -2,8 +2,8 @@ export const personalDetails =
     {
         name: "Arsene Thierry",
         logo: "/images/logo-light.svg",
-        desc: "I am a fullstack web developper, I build interactive, strong and secured website that run across platforms & devices.",
-        about: "I am a fullstack web developper based on MERN stack (MongoDB, Express, React, and Node.js) and Python(Django). I am proficient in using these technologies to build and maintain web applications, and am comfortable working with both the front-end and back-end aspects of development.",
+        desc: "IT Support Engineer & Fullstack Developer with 3+ years of experience delivering secure, scalable solutions across helpdesk support, network administration, and modern web development.",
+        about: "IT Support Engineer and Fullstack Software Developer skilled in troubleshooting, system administration, network management, and building web applications. Proficient in Microsoft Dynamics CRM, identity & access management, Linux/Windows OS, and the MERN stack (MongoDB, Express, React, Node.js). Experienced in DevOps, cybersecurity, cloud platforms, and providing user-focused technical support in both local and international environments.",
         socialMedia: [
             {
                 "name": "github",
@@ -11,14 +11,14 @@ export const personalDetails =
                 "icon": "data:image/png;base64,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",
             },
         ],
-        work: "nblik",
+        work: "teknowledge",
         profile_img: "/images/no-bg.png",
         typedContent: [
+            "I'm an IT Support Engineer",
             "I'm a Full Stack Developer",
-            "I'm a Next.Js Developer",
-            "I'm a Node.js Developer",
-            "I'm a Express.js Developer",
-            "I'm a Firebase Developer",
+            "I'm a Network Administrator",
+            "I'm a Cybersecurity Enthusiast",
+            "I'm a DevOps Practitioner",
         ],
         ogImage: "/images/no-bg.png"
     }

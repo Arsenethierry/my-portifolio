@@ -6,33 +6,21 @@ import RenderCard from './render-project-card';
 
 function Projects() {
     const projects = [
-        {   
+        {
             "id": 1,
-            "tags": "#fullstack #reactJs #socket.io #redux",
-            "projectTitle": "Social Media App",
-            "description": "A full stack social media web application built with socket.io and mernstack",
-            "picture": "images/messenger.jpg"
+            "tags": "#saas #nextjs #nodejs #stripe #dropshipping",
+            "projectTitle": "IkazeStores",
+            "description": "A SaaS dropshipping platform empowering influencers to launch branded online stores, curate products, and earn on every sale — without holding inventory.",
+            "picture": "images/ikazestores.png",
+            "url": "https://ikazestores.com"
         },
-        {   
+        {
             "id": 2,
-            "tags": "#nextjs #stripe #nodejs #mui",
-            "projectTitle": "Ecommerce with Stripe payment",
-            "description": "A full functioning e-comerce website with stripe payment. it's built with nodejs and reactjs",
-            "picture": "images/ecomerce.png"
-        },
-        {   
-            "id": 3,
-            "tags": "#nextjs #react-query #nodejs",
-            "projectTitle": "Blog Web App",
-            "description": "A full stack social media web application built with socket.io and mernstack",
-            "picture": "images/mern-blog.png"
-        },
-        {   
-            "id": 4,
-            "tags": "#nexjs #tailwindcss",
-            "projectTitle": "Portfolio",
-            "description": "A full stack social media web application built with socket.io and mernstack",
-            "picture": "images/portfolio.png"
+            "tags": "#ai #recruitment #nextjs #saas",
+            "projectTitle": "Oodser",
+            "description": "An AI-powered hiring platform connecting top talent with fast-growing companies through an agile, data-driven recruitment experience.",
+            "picture": "images/oodser.png",
+            "url": "https://oodser.com"
         }
     ]
     const control = useAnimation();
@@ -61,7 +49,7 @@ function Projects() {
                     variants={textVariant}
                     ref={ref}
                     className="text-[#8892B0] text-[32px] md:text-[45px] font-semibold">
-                    Some of Projects I made
+                    Featured Projects
                 </motion.h1>
                 <div className='container pt-[50px] px-4 lg:px-0 grid grid-cols-1 md:grid-cols-2 gap-12'>
                     {projects.map((item) => (

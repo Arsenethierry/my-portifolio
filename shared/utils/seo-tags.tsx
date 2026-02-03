@@ -28,7 +28,7 @@ const SeoTags: FC<SEOProps> = (props) => {
             <meta name='robots' content='index,follow' key={'noarchiveTitlearsenePortfolio'} />
             <meta
                 property='og:type'
-                content="fullstackdeveloper"
+                content="profile"
                 key={'arsenePortfolioSitetype' + props?.title}
             />
             <meta

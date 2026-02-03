@@ -7,33 +7,33 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const experienceItems = [
     {
+        company: "Teknowledge (Microsoft Dynamics CRM), Kigali, Rwanda",
+        role: "IT Support Engineer",
+        duration: "September 2023 - Present",
+        achievements: [
+            "Provide first-line IT support to end-users across multiple regions, resolving hardware, software, and network issues.",
+            "Maintain CRM systems ensuring data integrity and security through VPN, 2FA, and access control management.",
+            "Assist with user onboarding, system configuration, and IT policy compliance for enterprise clients."
+        ]
+    },
+    {
+        company: "Opentext (via Teknowledge), Kigali, Rwanda",
+        role: "IAM Support Engineer",
+        duration: "September 2023 - December 2024",
+        achievements: [
+            "Implemented and supported secure authentication systems using NetIQ Advanced Authentication.",
+            "Ensured compliance with GDPR and data protection standards across enterprise environments.",
+            "Managed identity & access management workflows for secure user provisioning."
+        ]
+    },
+    {
         company: "NbliK, Delhi, India",
-        role: "Fullstack Web Developer",
+        role: "Fullstack Software Engineer",
         duration: "June 2022 - September 2023",
         achievements: [
-            "Designed and implemented RESTful APIs using Node.js and TypeScript, ensuring high performance and scalability.",
-            "Maintained a code library for future implementation by building recyclable architecture.",
-            "Collaborated with senior developers to boost efficiency and performance of applications."
-        ]
-    },
-    {
-        company: "VSTechworld5 Ltd, Vijayawada, India",
-        role: "BackEnd Developer",
-        duration: "May 2021 - June 2022",
-        achievements: [
-            "Contributed on the Back-End side of a clinical web app to collect data of 100+ patients.",
-            "Assisted in developing server-based nodejs software by providing inputs and insights.",
-            "Acquired a 15% increase in the quality of overall work."
-        ]
-    },
-    {
-        company: "MICROVERSE",
-        role: "Full Stack Web Development Program",
-        duration: "February 2023 - January 2024",
-        achievements: [
-            "Spent 900+ hours mastering algorithms, data structures, and full-stack development.",
-            "Developed projects with Node.js, Express.js, JavaScript, React, Next.js and Redux.",
-            "Practiced remote pair-programming using GitHub with 20+ international developers."
+            "Developed and maintained secure web applications using Next.js and REST APIs.",
+            "Collaborated with development teams to integrate user authentication and identity management systems.",
+            "Built scalable backend services with Node.js and TypeScript ensuring high performance."
         ]
     }
 ];
@@ -149,11 +149,10 @@ function SkillsExplore() {
                         <div className='sm:w-4/5 relative'>
                             <HeaderSmall text="Who I am" />
                             <h1 className="sm:w-4/5 mb-3 mt-1 text-7xl sm:text-5xl md:text-5xl font-normal tracking-wide text-white leading-normal lg:leading-7">
-                                He creates elegant, logical web and mobile app solutions. In his hobby time, he
-                                designs.
+                                He engineers reliable IT infrastructure and builds secure, scalable web solutions.
                             </h1>
                             <h1 className="mb-3 mt-6 text-4xl sm:text-2xl md:text-3xl lg:text-2xl xl:text-1xl font-extrabold text-white leading-none ">
-                                Think. <span className="text-pink">Code.</span> Debug.
+                                Support. <span className="text-pink">Code.</span> Secure.
                             </h1>
                         </div>
                     </div>

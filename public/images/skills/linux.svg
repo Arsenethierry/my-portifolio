@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <path d="M64 4C30 4 4 30 4 64s26 60 60 60 60-26 60-60S98 4 64 4z" fill="#333"/>
+  <path d="M64 12c-28.7 0-52 23.3-52 52s23.3 52 52 52 52-23.3 52-52-23.3-52-52-52z" fill="#FFC107"/>
+  <text x="64" y="78" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#333">Lx</text>
+</svg>

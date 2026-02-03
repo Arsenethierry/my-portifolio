@@ -25,8 +25,8 @@ const Home = ({ personalDetails }: Props) => {
   return (
     <>
       <SeoTags
-        title={personalDetails.name + ' | fullstack web developer'}
-        keywords='fullstack mern react nextjs developer frontend backend'
+        title={personalDetails.name + ' | IT Support Engineer & Fullstack Developer'}
+        keywords='IT support engineer fullstack developer network administrator cybersecurity devops mern react nextjs nodejs CRM identity access management'
         ogImage={personalDetails.ogImage}
         ogDesc={personalDetails.desc}
         description={personalDetails.desc}
