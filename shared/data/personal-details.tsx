@@ -2,7 +2,7 @@ export const personalDetails =
     {
         name: "Arsene Thierry",
         logo: "/images/logo-light.svg",
-        desc: "IT Support Engineer & Fullstack Developer with 3+ years of experience delivering secure, scalable solutions across helpdesk support, network administration, and modern web development.",
+        desc: "Microsoft IT Support Engineer and Identity & Access Management specialist with 5+ years of experience supporting global teams, implementing secure authentication systems, managing enterprise identity platforms, and troubleshooting complex IT environments.",
         about: "IT Support Engineer and Fullstack Software Developer skilled in troubleshooting, system administration, network management, and building web applications. Proficient in Microsoft Dynamics CRM, identity & access management, Linux/Windows OS, and the MERN stack (MongoDB, Express, React, Node.js). Experienced in DevOps, cybersecurity, cloud platforms, and providing user-focused technical support in both local and international environments.",
         socialMedia: [
             {
