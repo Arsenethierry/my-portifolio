@@ -1,120 +1,77 @@
 import Head from 'next/head';
-import React, { FC } from 'react';
+import React from 'react';
+import { career, education, profile } from '../data/profile';
 
 interface SEOProps {
-    site_name?: string;
     title: string;
     description: string;
-    keywords: string;
-    image?: string;
-    url?: string;
-    article?: boolean;
-    favicon?: string;
-    ogImage?: string;
-    ogTitle?: string;
-    metaDesc?: string;
-    ogDesc?: string;
-    metaTitle?: string;
-    Id?: any;
-  }
+    /** Path relative to the site root, e.g. "/" — used for canonical and og:url. */
+    path?: string;
+    noindex?: boolean;
+    /** Emit Person structured data (homepage only). */
+    personSchema?: boolean;
+}
 
-const SeoTags: FC<SEOProps> = (props) => {
+const absolute = (path: string) => new URL(path, profile.siteUrl).toString();
+
+/** Person schema limited to facts stated on the resume. */
+function personJsonLd() {
+    const current = career[0].roles;
+    const sameAs = profile.contact
+        .filter((c) => c.kind === 'linkedin' || c.kind === 'github')
+        .map((c) => c.href);
+    const completed = education.filter((e) => e.status !== 'In progress');
+
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: profile.name,
+        url: profile.siteUrl,
+        image: absolute(profile.portrait.src),
+        jobTitle: current[0]?.title,
+        worksFor: current.map((r) => ({ '@type': 'Organization', name: r.company })),
+        alumniOf: completed.map((e) => ({ '@type': 'CollegeOrUniversity', name: e.institution })),
+        address: { '@type': 'PostalAddress', addressLocality: 'Kigali', addressCountry: 'RW' },
+        email: `mailto:${profile.contact.find((c) => c.kind === 'email')?.value}`,
+        sameAs,
+    };
+}
+
+function SeoTags({ title, description, path = '/', noindex, personSchema }: SEOProps) {
+    const url = absolute(path);
+    const image = absolute(profile.ogImage);
+
     return (
         <Head>
-            <meta httpEquiv='Content-Type' content='text/html; charset=utf-8' />
-            <title key={'arsenePortfolioTitle'}>
-                {props?.metaTitle ? props.metaTitle : props.title}
-            </title>
-            <meta name='robots' content='index,follow' key={'noarchiveTitlearsenePortfolio'} />
-            <meta
-                property='og:type'
-                content="profile"
-                key={'arsenePortfolioSitetype' + props?.title}
-            />
-            <meta
-                property='og:site_name'
-                content={props?.title}
-                key={'arsenePortfolioSitename' + props?.title}
-            />
-            <meta
-                property="og:image"
-                content={props?.ogImage ? props?.ogImage : props?.image}
-                key={'ogimageTitletypesite_name' + props?.title}
-            />
-            <meta
-                property="og:url"
-                content={props?.url}
-                key={'urlArsenePortfolio' + props?.title}
-            />
-            <meta
-                property="og:description"
-                content={props?.ogDesc ? props?.ogDesc : props?.description}
-                key={'arsenePortfoliodescription' + props?.title}
-            />
-            <meta
-                name="twitter:card"
-                content="summary"
-                key={'twitter:cardsummaryarsenePortfolio' + props?.title}
-            />
-            <meta
-                name="twitter:site"
-                content={props?.title}
-                key={'twitter:cardsummarysitearsenePortfolio' + props?.title}
-            />
-            <meta
-                name="twitter:url"
-                content={props?.url}
-                key={'twitter:cardsummarysite32arsenePortfolio' + props?.title}
-            />
-            <meta
-                name="twitter:title"
-                content={props?.title}
-                key={'twitter:cardsummarysite32544arsenePortfolio' + props?.title}
-            />
-            <meta
-                name="twitter:description"
-                content={props?.description}
-                key={'twitter:cardsummarysite321212arsenePortfolio' + props?.title}
-            />
-            <meta
-                name="twitter:image"
-                content={'/images/logo-light.svg'}
-                key={'twitter:cardsummarysite3434332arsenePortfolio' + props?.title}
-            />
-            <link
-                rel="canonical"
-                href={props?.url}
-                key={'twitter:cardsummarysite3121112arsenePortfolio' + props?.title}
-            />
-            <meta name="twitter:widgets:theme" content="light" />
-            <meta
-                name="keywords"
-                content={props?.keywords}
-                key={'nbKeyword' + props?.title}
-            />
-            <meta
-                name="description"
-                content={props?.metaDesc ? props?.metaDesc : props?.description}
-                key={'twitter:descriptioncardsummarysite32544arsenePortfolio' + props?.title}
-            />
-            <link
-                rel="icon"
-                type="image/png"
-                sizes="32x32"
-                href={`/images/logo-light.svg`}
-            />
-            <link
-                rel="icon"
-                type="image/png"
-                sizes="96x96"
-                href={`/images/logo-light.svg`}
-            />
-            <link
-                rel="icon"
-                type="image/png"
-                sizes="16x16"
-                href={`/images/logo-light.svg`}
-            />
+            <title>{title}</title>
+            <meta name="description" content={description} />
+            <meta name="robots" content={noindex ? 'noindex,follow' : 'index,follow'} />
+            <link rel="canonical" href={url} />
+
+            <meta property="og:type" content="profile" />
+            <meta property="og:site_name" content={profile.name} />
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={description} />
+            <meta property="og:url" content={url} />
+            <meta property="og:image" content={image} />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+            <meta property="og:image:alt" content={`${profile.name} — Software engineer & CTO`} />
+            <meta property="profile:first_name" content="Arsene Thierry" />
+            <meta property="profile:last_name" content="Komezudufashe" />
+
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={title} />
+            <meta name="twitter:description" content={description} />
+            <meta name="twitter:image" content={image} />
+
+            {personSchema && (
+                <script
+                    type="application/ld+json"
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
+                />
+            )}
         </Head>
     );
 }

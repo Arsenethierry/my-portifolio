@@ -1,54 +1,36 @@
-import type { NextPage } from 'next'
-import dynamic from 'next/dynamic'
-import { Loader } from '../shared/components'
-import { PersonalDetailsContext } from '../shared/utils/context'
-import { PersonalDetails, Project } from '../shared/utils/types'
-// import { Loader } from '@shared-components'
-import { personalDetails } from '../shared/data/personal-details';
-import Navbar from '../shared/components/navbar'
-import SocialBar from '../shared/components/socialbar'
-import Footer from '../shared/components/footer'
-import SeoTags from '../shared/utils/seo-tags'
+import type { NextPage } from 'next';
+import Navbar from '../shared/components/navbar';
+import Footer from '../shared/components/footer';
+import SeoTags from '../shared/utils/seo-tags';
+import Hero from '../components/home/hero';
+import Strengths from '../components/home/strengths';
+import TechMarquee from '../components/home/tech-marquee';
+import SelectedWork from '../components/home/selected-work';
+import Career from '../components/home/career';
+import Contact from '../components/home/contact';
+import { profile } from '../shared/data/profile';
 
-
-const HomePage = dynamic(() => import('../components/home/index'), {
-  ssr: false,
-  loading: () => <Loader />
-})
-
-type Props = {
-  personalDetails: PersonalDetails;
+const Home: NextPage = () => {
+    return (
+        <>
+            <SeoTags
+                title={`${profile.name} — Software Engineer & CTO`}
+                description="Software engineer and CTO at Oodser and Praeta Consult in Kigali. Full-stack development with Next.js, Express and NestJS, plus Docker, CI/CD, VPS infrastructure, authentication and production support."
+                path="/"
+                personSchema
+            />
+            <Navbar />
+            <main id="main">
+                <Hero />
+                <TechMarquee />
+                <Strengths />
+                <SelectedWork />
+                <Career />
+                <Contact />
+            </main>
+            <Footer />
+        </>
+    );
 };
 
-const Home = ({ personalDetails }: Props) => {
-
-  return (
-    <>
-      <SeoTags
-        title={personalDetails.name + ' | IT Support Engineer & Fullstack Developer'}
-        keywords='IT support engineer fullstack developer network administrator cybersecurity devops mern react nextjs nodejs CRM identity access management'
-        ogImage={personalDetails.ogImage}
-        ogDesc={personalDetails.desc}
-        description={personalDetails.desc}
-        url='https://arsenethierry-dev.vercel.app/'
-      />
-      {/* <PersonalDetailsContext.Provider value={personalDetails}> */}
-      <Navbar />
-      <SocialBar />
-      <HomePage personalDetails={personalDetails} />
-      <Footer />
-      {/* </PersonalDetailsContext.Provider> */}
-    </>
-  )
-}
-
 export default Home;
-
-export async function getStaticProps() {
-  return {
-    props: {
-      personalDetails,
-    }
-  };
-}
-

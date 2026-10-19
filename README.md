@@ -1,27 +1,32 @@
-# Next.js + Tailwind CSS Example
+# Arsene Thierry Komezudufashe — Portfolio
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+Personal portfolio at <https://arsenethierry-dev.vercel.app>. Next.js 12 (pages router), React 17, Tailwind CSS 3. The homepage is statically generated; the only client-side state is the mobile menu.
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+## Commands
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
+pnpm install
+pnpm dev         # local development
+pnpm lint        # ESLint (next/core-web-vitals)
+pnpm typecheck   # tsc --noEmit
+pnpm build       # production build (also lints and type-checks)
 ```
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+## Updating content
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+All career, skills, and project content lives in [`shared/data/profile.ts`](shared/data/profile.ts). Components only render it.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+- The resume PDF at `public/Arsene Dev Resume.pdf` is the source of truth. When it changes, update `profile.ts` to match: titles, dates, bullets, skills, education.
+- Every resume link goes through `shared/components/resume-link.tsx`. To publish a new file, change `profile.resume.href` only.
+- Selected work entries are in `engagements`. Set `published: false` to keep an entry without showing it.
+- After adding a new page, update `public/sitemap.xml`.
+
+## Layout
+
+```
+pages/                 index (homepage), 404, _document
+components/home/       hero, strengths, selected-work, career, contact
+shared/components/     navbar, footer, resume-link, icons
+shared/data/profile.ts content source
+shared/utils/          types, SEO tags (+ Person JSON-LD)
+```
